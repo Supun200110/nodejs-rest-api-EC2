@@ -26,6 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: nodejs-rest-api-EC2/package-lock.json
+        - name: Install dependencies
+  working-directory: nodejs-rest-api-EC2
+
     - run: npm ci
     - run: npm run build --if-present
     - run: |
